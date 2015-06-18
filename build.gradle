@@ -85,9 +85,9 @@ uploadArchives {
 				authentication(userName: sonatypeUsername, password: sonatypePassword)
 			}
             pom.project {
-				name 'braille-utils.common-cli'
+				name 'braille-utils.basic-cli'
 				packaging 'jar'
-				description 'Braille Utils Common CLI'
+				description 'Braille Utils Basic CLI'
 				url 'https://github.com/joeha480/brailleutils/'
 				scm {
 					connection 'scm:git:https://github.com/joeha480/brailleutils.git'
