@@ -1,0 +1,112 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: "signing"
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+javadoc {
+	options.encoding = 'UTF-8'
+	options.links('http://docs.oracle.com/javase/6/docs/api/');
+}
+sourceCompatibility = '1.6'
+targetCompatibility = '1.6'
+
+group = "org.daisy.braille"
+
+sourceSets {
+	main {	java { srcDir 'src' }	resources { srcDir 'src' } }
+	test {	java { srcDir 'test' }	resources { srcDir 'test' } }
+}
+
+jar {
+	doFirst {
+		manifest {
+	    	attributes ('Built-By': System.getProperty("user.name"),
+	    	'Built-On': new Date().format('yyyy-MM-dd'),
+			'Repository-Revision': "$repositoryRevision",
+			'Implementation-Title': "$releaseName Common CLI",
+			'Implementation-Version': version,
+			'Implementation-URL': 'http://code.google.com/p/brailleutils/',
+			//'Class-Path': configurations.compile.collect { it.getName() }.join(' ')					//'${core.classpath.attribute}'
+			)
+		}
+	}
+	from sourceSets.main.allJava
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+configurations {
+	provided
+	compile { extendsFrom provided }
+}
+
+dependencies {
+	testCompile group: 'junit', name: 'junit', version: '4.7'
+}
+
+task javadocJar(type: Jar) {
+	classifier = 'javadoc'
+	from javadoc
+}
+
+task sourcesJar(type: Jar) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
+}
+
+artifacts {
+	archives javadocJar, sourcesJar
+}
+
+ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
+
+signing {
+	required { isReleaseVersion && gradle.taskGraph.hasTask("uploadArchives") }
+	sign configurations.archives
+}
+
+uploadArchives {
+	//Only upload if a git hash is supplied. On Travis only upload snapshots.
+	enabled = repositoryRevision.size()==40 && (System.getenv("TRAVIS_BUILD_ID")==null || version.endsWith("SNAPSHOT"))
+	repositories {
+		mavenDeployer {
+			if (isReleaseVersion) {
+				beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+			}
+			repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+				authentication(userName: sonatypeUsername, password: sonatypePassword)
+			}
+			snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+				authentication(userName: sonatypeUsername, password: sonatypePassword)
+			}
+            pom.project {
+				name 'braille-utils.common-cli'
+				packaging 'jar'
+				description 'Braille Utils Common CLI'
+				url 'https://github.com/joeha480/brailleutils/'
+				scm {
+					connection 'scm:git:https://github.com/joeha480/brailleutils.git'
+					developerConnection 'scm:git:https://github.com/joeha480/brailleutils.git'
+					url "$repositoryURL"
+				}
+                licenses {
+					license {
+						name 'LGPL'
+						url 'http://www.gnu.org/licenses/lgpl.html'
+					}
+                }
+				developers {
+					developer {
+						id 'joel'
+						name 'Joel Håkansson'
+					}
+				}
+			}
+		}
+	}
+}
