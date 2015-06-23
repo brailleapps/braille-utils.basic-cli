@@ -24,9 +24,9 @@ jar {
 	    	attributes ('Built-By': System.getProperty("user.name"),
 	    	'Built-On': new Date().format('yyyy-MM-dd'),
 			'Repository-Revision': "$repositoryRevision",
-			'Implementation-Title': "$releaseName Common CLI",
+			'Implementation-Title': "$releaseName",
 			'Implementation-Version': version,
-			'Implementation-URL': 'http://code.google.com/p/brailleutils/',
+			'Implementation-URL': "$repositoryURL",
 			//'Class-Path': configurations.compile.collect { it.getName() }.join(' ')					//'${core.classpath.attribute}'
 			)
 		}
