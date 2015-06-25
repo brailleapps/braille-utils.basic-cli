@@ -26,7 +26,6 @@ public class SwitchArgument extends Definition {
 	/**
 	 * Creates a switch argument. If the key is found in the command,
 	 * e.g. -c then it should be substituted by [name]=[value]
-	 * @param key the switch key
 	 * @param alias the switch alias
 	 * @param name the name of the argument
 	 * @param value the value for the argument
