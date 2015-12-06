@@ -38,7 +38,7 @@ public class ShortFormResolver {
 	}
 	
 	private static Collection<String> toCollection(String ... s) {
-		Collection<String> ret = new ArrayList<String>();
+		Collection<String> ret = new ArrayList<>();
 		Collections.addAll(ret, s);
 		return ret;
 	}
@@ -48,10 +48,10 @@ public class ShortFormResolver {
 	 * @param obj the collection to create short forms for
 	 */
 	public ShortFormResolver(Collection<String> obj) {
-		this.idents = new HashMap<String, String>();
-		this.shorts = new HashMap<String, String>();
+		this.idents = new HashMap<>();
+		this.shorts = new HashMap<>();
 		//analyze uniqueness short forms
-		HashMap<String, Integer> uniqueIndex = new HashMap<String, Integer>();
+		HashMap<String, Integer> uniqueIndex = new HashMap<>();
 		for (String f : obj) {
 			String identifier = f.toLowerCase();
 			for (String p : identifier.split("\\.")) {
@@ -86,7 +86,7 @@ public class ShortFormResolver {
 	 * @return returns a list of short forms
 	 */
 	public List<String> getShortForms() {
-		ArrayList<String> ret = new ArrayList<String>(idents.keySet());
+		ArrayList<String> ret = new ArrayList<>(idents.keySet());
 		Collections.sort(ret);
 		return ret;
 	}

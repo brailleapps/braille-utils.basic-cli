@@ -17,8 +17,8 @@ public class DefaultCommandParser {
 		delimiter = "=";
 		optionalArgumentPrefix = "--";
 		switchArgumentPrefix = "-";
-		switches = new ArrayList<SwitchArgument>();
-		switchesLookup = new HashMap<String, SwitchArgument>();
+		switches = new ArrayList<>();
+		switchesLookup = new HashMap<>();
 	}
 	
 	public String getKeyValueDelimiter() {

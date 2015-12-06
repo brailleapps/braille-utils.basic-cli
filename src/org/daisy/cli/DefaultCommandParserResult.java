@@ -14,8 +14,8 @@ class DefaultCommandParserResult implements CommandParserResult {
 		private final ArrayList<String> unnamed;
 
 		Builder() {
-			optional = new HashMap<String, String>();
-			unnamed = new ArrayList<String>();
+			optional = new HashMap<>();
+			unnamed = new ArrayList<>();
 		}
 		
 		Builder addOptional(String key, String value) {
@@ -39,17 +39,20 @@ class DefaultCommandParserResult implements CommandParserResult {
 	}
 
 	@SuppressWarnings("unchecked")
+        @Override
 	public List<String> getRequired() {
 		return (List<String>)unnamed.clone();
 	}
 
 	@SuppressWarnings("unchecked")
+        @Override
 	public Map<String, String> getOptional() {
 		return (Map<String, String>)optional.clone();
 	}
 
+        @Override
 	public Map<String, String> toMap(String prefix) {
-		HashMap<String, String> ret = new HashMap<String, String>();
+		HashMap<String, String> ret = new HashMap<>();
 		int i = 0;
 		for (String s : unnamed) {
 			ret.put(prefix+i, s);
