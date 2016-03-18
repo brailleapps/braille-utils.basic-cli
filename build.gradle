@@ -92,10 +92,10 @@ uploadArchives {
 				name 'braille-utils.basic-cli'
 				packaging 'jar'
 				description 'Braille Utils Basic CLI'
-				url 'https://github.com/joeha480/brailleutils/'
+				url "$repositoryURL"
 				scm {
-					connection 'scm:git:https://github.com/joeha480/brailleutils.git'
-					developerConnection 'scm:git:https://github.com/joeha480/brailleutils.git'
+					connection "$repositorySCM"
+					developerConnection "$repositorySCM"
 					url "$repositoryURL"
 				}
                 licenses {
