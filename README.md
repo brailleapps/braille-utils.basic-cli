@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/brailleapps/braille-utils.basic-cli.svg?branch=master)](https://travis-ci.org/brailleapps/braille-utils.basic-cli)
+[![Type](https://img.shields.io/badge/type-library_bundle-blue.svg)](https://github.com/brailleapps/wiki/wiki/Types)
 
 # Basic CLI #
 Provides a module for building a basic cli. This module is not a command line interface in it self.
@@ -9,7 +10,10 @@ Download from maven central using the following information: `org.daisy.braille:
 Extend the `AbstractUI` class to create a cli.
 
 ## Building ##
-Build with `gradlew build`
+Build with `gradlew build` (Windows) or `./gradlew build` (Mac/Linux)
+
+## Testing ##
+Tests are run with `gradlew test` (Windows) or `./gradlew test` (Mac/Linux)
 
 ## Requirements & Compatibility ##
 - Requires JDK 7
