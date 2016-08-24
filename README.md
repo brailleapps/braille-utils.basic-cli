@@ -14,3 +14,6 @@ Build with `gradlew build`
 ## Requirements & Compatibility ##
 - Requires JDK 7
 - Not compatible with OSGi
+
+## More information ##
+See the [common wiki](https://github.com/brailleapps/wiki/wiki) for more information.
