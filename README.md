@@ -19,5 +19,8 @@ Tests are run with `gradlew test` (Windows) or `./gradlew test` (Mac/Linux)
 - Requires JDK 7
 - Not compatible with OSGi
 
+## Javadoc ##
+Javadoc for the latest Basic CLI is available [here](http://brailleapps.github.io/braille-utils.basic-cli/latest/javadoc/).
+
 ## More information ##
 See the [common wiki](https://github.com/brailleapps/wiki/wiki) for more information.
