@@ -30,8 +30,8 @@ public abstract class AbstractUI {
 	/**
 	 * Prefix used for required arguments in the arguments map
 	 */
-	public final static String ARG_PREFIX = "required-";
-	private final static int WIDTH = 50;
+	public static final String ARG_PREFIX = "required-";
+	private static final int WIDTH = 50;
 	protected final DefaultCommandParser parser;
 	
 	/**
