@@ -33,6 +33,11 @@ public class ShortFormResolver {
 	private final HashMap<String, String> idents;
 	private final HashMap<String, String> shorts;
 	
+	/**
+	 * Creates a new short form resolver with the specified
+	 * list of identifiers.
+	 * @param s the identifiers
+	 */
 	public ShortFormResolver(String ... s) {
 		this(toCollection(s));
 	}

@@ -36,9 +36,9 @@ public abstract class AbstractUI {
 	
 	/**
 	 * Expands the short form of the value with the given key in the provided map using the specified resolver.
-	 * @param map 
-	 * @param key
-	 * @param resolver
+	 * @param map the map with keys
+	 * @param key the key to find
+	 * @param resolver the resolver
 	 */
 	public void expandShortForm(Map<String, String> map, String key, ShortFormResolver resolver) {
 		String value = map.get(key);
@@ -110,10 +110,19 @@ public abstract class AbstractUI {
 	 */
 	public abstract List<OptionalArgument> getOptionalArguments();
 	
+	/**
+	 * Quits the application with the specified code.
+	 * @param e the code
+	 */
 	public static void exitWithCode(ExitCode e) {
 		exitWithCode(e, null);
 	}
 	
+	/**
+	 * Quits the application with the specified code and message. 
+	 * @param e the code
+	 * @param message the message
+	 */
 	public static void exitWithCode(ExitCode e, String message) {
 		if (message!=null) {
 			System.out.println(message);
@@ -156,6 +165,10 @@ public abstract class AbstractUI {
 		}
 	}
 	
+	/**
+	 * Prints the required arguments to the specified stream.
+	 * @param ps the print stream
+	 */
 	public void displayRequired(PrintStream ps) {
 		for (Argument a : getRequiredArguments()) {
 			ps.println("\t<" + a.getName()+ ">");
@@ -171,6 +184,10 @@ public abstract class AbstractUI {
 		}
 	}
 	
+	/**
+	 * Prints the optional arguments to the specified stream.
+	 * @param ps the print stream
+	 */
 	public void displayOptions(PrintStream ps) {
 		if (getOptionalArguments()==null) {
 			return;
@@ -198,6 +215,10 @@ public abstract class AbstractUI {
 		}
 	}
 	
+	/**
+	 * Prints switches to the specified stream. 
+	 * @param ps the print stream
+	 */
 	public void displaySwitches(PrintStream ps) {
 		if (parser.getSwitches()==null) {
 			return;

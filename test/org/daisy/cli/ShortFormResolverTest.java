@@ -3,6 +3,7 @@ package org.daisy.cli;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+@SuppressWarnings("javadoc")
 public class ShortFormResolverTest {
 
 	@Test

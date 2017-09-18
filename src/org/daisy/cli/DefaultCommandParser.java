@@ -6,6 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Provides a default command parser.
+ * @author Joel Håkansson
+ *
+ */
 public class DefaultCommandParser {
 	private String delimiter;
 	private String optionalArgumentPrefix;
@@ -13,6 +18,9 @@ public class DefaultCommandParser {
 	private List<SwitchArgument> switches;
 	private Map<String, SwitchArgument> switchesLookup;
 	
+	/**
+	 * Creates a new command parser.
+	 */
 	public DefaultCommandParser() {
 		delimiter = "=";
 		optionalArgumentPrefix = "--";
@@ -21,6 +29,10 @@ public class DefaultCommandParser {
 		switchesLookup = new HashMap<>();
 	}
 	
+	/**
+	 * Gets the key/value delimiter.
+	 * @return returns the delimiter
+	 */
 	public String getKeyValueDelimiter() {
 		return delimiter;
 	}
@@ -34,6 +46,10 @@ public class DefaultCommandParser {
 		delimiter = value;
 	}
 	
+	/**
+	 * Gets the optional argument prefix.
+	 * @return returns the prefix
+	 */
 	public String getOptionalArgumentPrefix() {
 		return optionalArgumentPrefix;
 	}
@@ -47,10 +63,18 @@ public class DefaultCommandParser {
 		optionalArgumentPrefix = value;
 	}
 
+	/**
+	 * Gets the switch argument prefix.
+	 * @return returns the prefix
+	 */
 	public String getSwitchArgumentPrefix() {
 		return switchArgumentPrefix;
 	}
 
+	/**
+	 * Sets the switch argument prefix.
+	 * @param switchArgumentPrefix the switch argument prefix
+	 */
 	public void setSwitchArgumentPrefix(String switchArgumentPrefix) {
 		this.switchArgumentPrefix = switchArgumentPrefix;
 	}
@@ -98,6 +122,11 @@ public class DefaultCommandParser {
 		return args;
 	}
 	
+	/**
+	 * Parses the supplied strings with this parser.
+	 * @param args the arguments
+	 * @return returns the parser result
+	 */
 	public CommandParserResult parse(String[] args) {
 		String[] t;
 		DefaultCommandParserResult.Builder builder = new DefaultCommandParserResult.Builder();

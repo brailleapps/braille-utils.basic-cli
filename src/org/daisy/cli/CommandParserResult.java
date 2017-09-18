@@ -3,6 +3,11 @@ package org.daisy.cli;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Provides a parser result.
+ * @author Joel Håkansson
+ *
+ */
 public interface CommandParserResult {
 
 	/**
