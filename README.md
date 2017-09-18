@@ -5,7 +5,7 @@
 Provides a module for building a basic cli. This module is not a command line interface in it self.
 
 ## Using ##
-Download from maven central using the following information: `org.daisy.braille:braille-utils.basic-cli:1.0.0`
+Download the [latest release](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22braille-utils.basic-cli%22) from maven central.
 
 Extend the `AbstractUI` class to create a cli.
 
@@ -16,7 +16,7 @@ Build with `gradlew build` (Windows) or `./gradlew build` (Mac/Linux)
 Tests are run with `gradlew test` (Windows) or `./gradlew test` (Mac/Linux)
 
 ## Requirements & Compatibility ##
-- Requires JDK 7
+- Requires Java 8
 - Not compatible with OSGi
 
 ## Javadoc ##
