@@ -17,7 +17,7 @@ public class DefaultCommandParser {
 	private String switchArgumentPrefix;
 	private List<SwitchArgument> switches;
 	private Map<String, SwitchArgument> switchesLookup;
-	
+
 	/**
 	 * Creates a new command parser.
 	 */
@@ -28,7 +28,7 @@ public class DefaultCommandParser {
 		switches = new ArrayList<>();
 		switchesLookup = new HashMap<>();
 	}
-	
+
 	/**
 	 * Gets the key/value delimiter.
 	 * @return returns the delimiter
@@ -45,7 +45,7 @@ public class DefaultCommandParser {
 	public void setKeyValueDelimiter(String value) {
 		delimiter = value;
 	}
-	
+
 	/**
 	 * Gets the optional argument prefix.
 	 * @return returns the prefix
@@ -78,7 +78,7 @@ public class DefaultCommandParser {
 	public void setSwitchArgumentPrefix(String switchArgumentPrefix) {
 		this.switchArgumentPrefix = switchArgumentPrefix;
 	}
-	
+
 	/**
 	 * Adds a switch.
 	 * @param value the switch
@@ -97,7 +97,7 @@ public class DefaultCommandParser {
 		}
 		switches.add(value);
 	}
-	
+
 	/**
 	 * Gets the switch arguments.
 	 * @return returns the switch arguments
@@ -121,7 +121,7 @@ public class DefaultCommandParser {
 		}
 		return args;
 	}
-	
+
 	/**
 	 * Parses the supplied strings with this parser.
 	 * @param args the arguments

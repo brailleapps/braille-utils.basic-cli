@@ -32,7 +32,7 @@ import java.util.List;
 public class ShortFormResolver {
 	private final HashMap<String, String> idents;
 	private final HashMap<String, String> shorts;
-	
+
 	/**
 	 * Creates a new short form resolver with the specified
 	 * list of identifiers.
@@ -41,13 +41,13 @@ public class ShortFormResolver {
 	public ShortFormResolver(String ... s) {
 		this(toCollection(s));
 	}
-	
+
 	private static Collection<String> toCollection(String ... s) {
 		Collection<String> ret = new ArrayList<>();
 		Collections.addAll(ret, s);
 		return ret;
 	}
-	
+
 	/**
 	 * Creates a new ShortFormResolver for the supplied collection of identifiers.
 	 * @param obj the collection to create short forms for
@@ -95,7 +95,7 @@ public class ShortFormResolver {
 		Collections.sort(ret);
 		return ret;
 	}
-	
+
 	/**
 	 * Get the short form for the specified identifier.
 	 * @param id the identifier to get the short form for
@@ -105,7 +105,7 @@ public class ShortFormResolver {
 	public String getShortForm(String id) {
 		return shorts.get(id);
 	}
-	
+
 	/**
 	 * Resolves a short form.
 	 * @param shortForm the short form to resolve

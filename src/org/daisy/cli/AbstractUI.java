@@ -33,7 +33,7 @@ public abstract class AbstractUI {
 	public static final String ARG_PREFIX = "required-";
 	private static final int WIDTH = 50;
 	protected final DefaultCommandParser parser;
-	
+
 	/**
 	 * Expands the short form of the value with the given key in the provided map using the specified resolver.
 	 * @param map the map with keys
@@ -52,7 +52,7 @@ public abstract class AbstractUI {
 			}
 		}
 	}
-	
+
 	/**
 	 * Creates a new AbstractUI using the default key/value delimiter '=' and
 	 * the default optional argument prefix '-'
@@ -71,7 +71,7 @@ public abstract class AbstractUI {
 	public void setKeyValueDelimiter(String value) {
 		parser.setKeyValueDelimiter(value);
 	}
-	
+
 	/**
 	 * Sets the optional argument prefix to use in argument strings passed to
 	 * the UI.
@@ -83,33 +83,33 @@ public abstract class AbstractUI {
 		}
 		parser.setOptionalArgumentPrefix(value);
 	}
-	
+
 	/**
 	 * Gets the name for the UI
 	 * @return returns the UI name
 	 */
 	public abstract String getName();
-	
+
 	/**
 	 * Gets the UI description
 	 * @return returns the UI description
 	 */
 	public abstract String getDescription();
-	
+
 	/**
 	 * Gets required arguments
 	 * @return returns a list of required arguments that can be
 	 * passed to the UI on startup
 	 */
 	public abstract List<Argument> getRequiredArguments();
-	
+
 	/**
 	 * Gets optional arguments
 	 * @return returns a list of optional arguments that can be
 	 * passed to the UI on startup
 	 */
 	public abstract List<OptionalArgument> getOptionalArguments();
-	
+
 	/**
 	 * Quits the application with the specified code.
 	 * @param e the code
@@ -117,7 +117,7 @@ public abstract class AbstractUI {
 	public static void exitWithCode(ExitCode e) {
 		exitWithCode(e, null);
 	}
-	
+
 	/**
 	 * Quits the application with the specified code and message. 
 	 * @param e the code
@@ -129,7 +129,7 @@ public abstract class AbstractUI {
 		}
 		System.exit(-e.ordinal());
 	}
-	
+
 	/**
 	 * Displays a help text for the UI based on the implementation of 
 	 * the methods getName, getOptionalArguments and getRequiredArguments. 
@@ -164,7 +164,7 @@ public abstract class AbstractUI {
 			displaySwitches(ps);
 		}
 	}
-	
+
 	/**
 	 * Prints the required arguments to the specified stream.
 	 * @param ps the print stream
@@ -183,7 +183,7 @@ public abstract class AbstractUI {
 			}
 		}
 	}
-	
+
 	/**
 	 * Prints the optional arguments to the specified stream.
 	 * @param ps the print stream
@@ -214,7 +214,7 @@ public abstract class AbstractUI {
 			ps.println();
 		}
 	}
-	
+
 	/**
 	 * Prints switches to the specified stream. 
 	 * @param ps the print stream
@@ -239,7 +239,7 @@ public abstract class AbstractUI {
 			ps.println();
 		}
 	}
-	
+
 	void format(PrintStream ps, String str, String prefix, int w) {
 		while (str.length()>w) {
 			int i = w;
@@ -254,5 +254,5 @@ public abstract class AbstractUI {
 		}
 		ps.println(prefix+str);
 	}
-	
+
 }

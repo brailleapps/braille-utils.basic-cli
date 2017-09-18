@@ -9,13 +9,13 @@ import org.junit.Test;
 
 @SuppressWarnings("javadoc")
 public class DefaultCommandParserTest {
-	
+
 	@Test
 	public void testSwitchProcessing_01() {
 		DefaultCommandParser parser = new DefaultCommandParser();
 		parser.addSwitch(new SwitchArgument('c', "copy", "true", "Turns on copying."));
 		CommandParserResult result = parser.parse(new String[]{"-c"});
-		
+
 		Map<String, String> opts = result.getOptional();
 
 		assertEquals(1, opts.size());
@@ -27,9 +27,9 @@ public class DefaultCommandParserTest {
 		DefaultCommandParser parser = new DefaultCommandParser();
 		parser.addSwitch(new SwitchArgument('c', "copy", "true", "Turns on copying."));
 		parser.addSwitch(new SwitchArgument('d', "delete", "all", "Delete originals."));
-		
+
 		CommandParserResult result = parser.parse(new String[]{"-c", "--copy=true", "-e", "-d"});
-		
+
 		List<String> req = result.getRequired();
 		assertEquals(1, req.size());
 		assertEquals("-e", req.get(0));
@@ -39,7 +39,7 @@ public class DefaultCommandParserTest {
 		assertEquals("true", opts.get("copy"));
 		assertEquals("all", opts.get("delete"));
 	}
-	
+
 	@Test
 	public void testCommandParser_01() {
 		DefaultCommandParser parser = new DefaultCommandParser();
@@ -53,7 +53,7 @@ public class DefaultCommandParserTest {
 		assertEquals(1, opts.size());
 		assertEquals("value", opts.get("option"));
 	}
-	
+
 	@Test
 	public void testCommandParser_02() {
 		DefaultCommandParser parser = new DefaultCommandParser();
@@ -68,7 +68,7 @@ public class DefaultCommandParserTest {
 		assertEquals(1, opts.size());
 		assertEquals("value", opts.get("option"));
 	}
-	
+
 	@Test
 	public void testCommandParser_03() {
 		DefaultCommandParser parser = new DefaultCommandParser();

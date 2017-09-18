@@ -6,7 +6,7 @@ package org.daisy.cli;
 public class Definition {
 	private final String name;
 	private final String desc;
-	
+
 	/**
 	 * Creates a new Definition.
 	 * @param name the name of the definition
@@ -24,7 +24,7 @@ public class Definition {
 	public String getName() {
 		return name;
 	}
-	
+
 	/**
 	 * Gets the description of the definition
 	 * @return returns the description

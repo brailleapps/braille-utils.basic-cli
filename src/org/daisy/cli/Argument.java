@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Argument extends Definition {
 	private final List<Definition> values;
-	
+
 	/**
 	 * Creates a new Argument.
 	 * @param name the name of the argument
@@ -17,7 +17,7 @@ public class Argument extends Definition {
 	public Argument(String name, String desc) {
 		this(name, desc, null);
 	}
-	
+
 	/**
 	 * Creates a new Argument with a finite list of acceptable values.
 	 * @param name the name of the argument
@@ -36,7 +36,7 @@ public class Argument extends Definition {
 	public boolean hasValues() {
 		return values!=null && values.size()>0;
 	}
-	
+
 	/**
 	 * Gets the list of acceptable values.
 	 * @return returns the list of acceptable values, or null if the list of possible values 

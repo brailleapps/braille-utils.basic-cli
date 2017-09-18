@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class OptionalArgument extends Argument {
 	private final String defaultValue;
-	
+
 	/**
 	 * Creates a new optional argument
 	 * @param name the name of the argument
@@ -19,7 +19,7 @@ public class OptionalArgument extends Argument {
 		super(name, description);
 		this.defaultValue = defaultValue;
 	}
-	
+
 	/**
 	 * Creates a new optional argument with a finite list of acceptable values.
 	 * @param name the name of the argument
@@ -31,7 +31,7 @@ public class OptionalArgument extends Argument {
 		super(name, description, values);
 		this.defaultValue = defaultValue;
 	}
-	
+
 	/**
 	 * Gets the default value.
 	 * @return returns the default value for the argument

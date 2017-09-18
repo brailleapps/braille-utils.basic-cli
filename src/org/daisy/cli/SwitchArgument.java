@@ -22,7 +22,7 @@ public class SwitchArgument extends Definition {
 	public SwitchArgument(char key, String name, String value, String desc) {
 		this(key, null, name, value, desc);
 	}
-	
+
 	/**
 	 * Creates a switch argument. If the key is found in the command,
 	 * e.g. -c then it should be substituted by [name]=[value]
@@ -36,7 +36,7 @@ public class SwitchArgument extends Definition {
 	public SwitchArgument(String alias, String name, String value, String desc) {
 		this(null, alias, name, value, desc);
 	}
-	
+
 	/**
 	 * Creates a switch argument. If the key is found in the command,
 	 * e.g. -c then it should be substituted by [name]=[value]
@@ -60,7 +60,7 @@ public class SwitchArgument extends Definition {
 		this.value = value;
 		this.alias = alias;
 	}
-	
+
 	/**
 	 * Gets the value for the argument when found
 	 * @return the argument value

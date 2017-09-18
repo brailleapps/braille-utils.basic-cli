@@ -16,14 +16,14 @@ public interface CommandParserResult {
 	 * @return returns the unnamed arguments
 	 */
 	public List<String> getRequired();
-	
+
 	/**
 	 * Gets the optional arguments.
 	 * 
 	 * @return returns the optional arguments
 	 */
 	public Map<String, String> getOptional();
-	
+
 	/**
 	 * Converts the command parser result into a key-value map.
 	 * 
@@ -31,5 +31,5 @@ public interface CommandParserResult {
 	 * @return returns a map of arguments
 	 */
 	public Map<String, String> toMap(String prefix);
-	
+
 }
