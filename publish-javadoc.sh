@@ -1,7 +1,7 @@
 #!/bin/bash
 #version: 2016-08-31
 
-repo=braille-utils.basic-cli
+repo=streamline-cli
 version=`grep 'version='  gradle.properties | grep -E -o '[0-9\.]+.+$'`
 if [[ $version == *SNAPSHOT ]]; then
 	is_release=false

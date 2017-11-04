@@ -20,7 +20,6 @@ package org.daisy.cli;
 import java.io.PrintStream;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 /**
  * Provides an abstract base for command line UI's.
@@ -62,9 +61,6 @@ public abstract class AbstractUI {
 		this.parser = new DefaultCommandParser();
 		setKeyValueDelimiter("=");
 		setOptionalArgumentPrefix("--");
-		Logger.getLogger(this.getClass().getCanonicalName())
-        	.warning("The artifact 'org.daisy.braille:braille-utils.basic-cli' has moved. Please update your build to use the new name 'org.daisy.streamline:streamline-cli'."
-                + "The first version under the new name is identical to the last under the old name, except for this message.");
 	}
 
 	/**

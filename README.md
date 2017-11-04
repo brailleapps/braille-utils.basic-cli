@@ -1,11 +1,11 @@
-[![Build Status](https://travis-ci.org/brailleapps/braille-utils.basic-cli.svg?branch=master)](https://travis-ci.org/brailleapps/braille-utils.basic-cli)
+[![Build Status](https://travis-ci.org/brailleapps/streamline-cli.svg?branch=master)](https://travis-ci.org/brailleapps/streamline-cli)
 [![Type](https://img.shields.io/badge/type-library_bundle-blue.svg)](https://github.com/brailleapps/wiki/wiki/Types)
 
-# Basic CLI #
+# Streamline CLI #
 Provides a module for building a basic cli. This module is not a command line interface in it self.
 
 ## Using ##
-Download the [latest release](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22braille-utils.basic-cli%22) from maven central.
+Download the [latest release](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22streamline-cli%22) from maven central.
 
 Extend the `AbstractUI` class to create a cli.
 
@@ -17,10 +17,10 @@ Tests are run with `gradlew test` (Windows) or `./gradlew test` (Mac/Linux)
 
 ## Requirements & Compatibility ##
 - Requires Java 8
-- Not compatible with OSGi
+- Compatible with SPI
 
 ## Javadoc ##
-Javadoc for the latest Basic CLI is available [here](http://brailleapps.github.io/braille-utils.basic-cli/latest/javadoc/).
+Javadoc for the latest Streamline CLI is available [here](http://brailleapps.github.io/streamline-cli/latest/javadoc/).
 
 ## More information ##
 See the [common wiki](https://github.com/brailleapps/wiki/wiki) for more information.

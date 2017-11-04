@@ -13,7 +13,7 @@ targetCompatibility = '1.8'
 
 def repoRevision = System.getenv("REPO_REVISION")!=null?System.getenv("REPO_REVISION"):repositoryRevision
 
-group = "org.daisy.braille"
+group = "org.daisy.streamline"
 
 sourceSets {
 	main {	java { srcDir 'src' }	resources { srcDir 'src' } }
@@ -82,9 +82,9 @@ uploadArchives {
 				authentication(userName: sonatypeUsername, password: sonatypePassword)
 			}
             pom.project {
-				name 'braille-utils.basic-cli'
+				name 'streamline-cli'
 				packaging 'jar'
-				description 'Braille Utils Basic CLI'
+				description 'Streamline CLI'
 				url "$repositoryURL"
 				scm {
 					connection "$repositorySCM"
