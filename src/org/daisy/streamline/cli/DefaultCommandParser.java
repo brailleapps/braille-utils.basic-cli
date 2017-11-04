@@ -1,4 +1,4 @@
-package org.daisy.cli;
+package org.daisy.streamline.cli;
 
 import java.util.ArrayList;
 import java.util.Collection;

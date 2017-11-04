@@ -1,7 +1,9 @@
-package org.daisy.cli;
+package org.daisy.streamline.cli;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import org.daisy.streamline.cli.ShortFormResolver;
 
 @SuppressWarnings("javadoc")
 public class ShortFormResolverTest {

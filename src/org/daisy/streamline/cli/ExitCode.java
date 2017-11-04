@@ -1,4 +1,4 @@
-package org.daisy.cli;
+package org.daisy.streamline.cli;
 /**
  * Provides exit codes to be used by implementing classes.
  */

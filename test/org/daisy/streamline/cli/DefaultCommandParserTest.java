@@ -1,10 +1,13 @@
-package org.daisy.cli;
+package org.daisy.streamline.cli;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 import java.util.Map;
 
+import org.daisy.streamline.cli.CommandParserResult;
+import org.daisy.streamline.cli.DefaultCommandParser;
+import org.daisy.streamline.cli.SwitchArgument;
 import org.junit.Test;
 
 @SuppressWarnings("javadoc")

@@ -10,4 +10,4 @@
  * 
  * @author Joel Håkansson
  */
-package org.daisy.cli;
+package org.daisy.streamline.cli;
