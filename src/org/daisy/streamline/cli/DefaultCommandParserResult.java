@@ -1,17 +1,18 @@
 package org.daisy.streamline.cli;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 class DefaultCommandParserResult implements CommandParserResult {
-	private final HashMap<String, String> optional;
-	private final ArrayList<String> unnamed;
+	private final Map<String, String> optional;
+	private final List<String> unnamed;
 
 	static class Builder {
-		private final HashMap<String, String> optional;
-		private final ArrayList<String> unnamed;
+		private final Map<String, String> optional;
+		private final List<String> unnamed;
 
 		Builder() {
 			optional = new HashMap<>();
@@ -34,25 +35,23 @@ class DefaultCommandParserResult implements CommandParserResult {
 	}
 
 	private DefaultCommandParserResult(Builder builder) {
-		this.optional = builder.optional;
-		this.unnamed = builder.unnamed;
+		this.optional = Collections.unmodifiableMap(new HashMap<>(builder.optional));
+		this.unnamed = Collections.unmodifiableList(new ArrayList<>(builder.unnamed));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<String> getRequired() {
-		return (List<String>)unnamed.clone();
+		return unnamed;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Map<String, String> getOptional() {
-		return (Map<String, String>)optional.clone();
+		return optional;
 	}
 
 	@Override
 	public Map<String, String> toMap(String prefix) {
-		HashMap<String, String> ret = new HashMap<>();
+		Map<String, String> ret = new HashMap<>();
 		int i = 0;
 		for (String s : unnamed) {
 			ret.put(prefix+i, s);

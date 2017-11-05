@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Provides shorter names for factory identifiers, to be used in command line user interfaces.
@@ -97,5 +98,24 @@ public class ShortFormResolver {
 	 */
 	public String resolve(String shortForm) {
 		return idents.get(shortForm.toLowerCase());
+	}
+	
+	/**
+	 * Expands the short form value found at the specified key in the provided map and 
+	 * replaces it with the full id using {@link #resolve(String)}.
+	 * @param map the map with keys
+	 * @param key the key to whose value to expand
+	 * @throws IllegalArgumentException if the value for the key cannot be resolved
+	 */
+	public void expandShortForm(Map<String, String> map, String key) {
+		String value = map.get(key);
+		if (value!=null) {
+			String id = resolve(value);
+			if (id!=null) {
+				map.put(key, id);
+			} else {
+				throw new IllegalArgumentException("Unknown value for "+key+": '" + value + "'");
+			}
+		}
 	}
 }

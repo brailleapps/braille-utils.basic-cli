@@ -6,17 +6,22 @@ import java.util.List;
 import java.util.Map;
 
 import org.daisy.streamline.cli.CommandParserResult;
-import org.daisy.streamline.cli.DefaultCommandParser;
+import org.daisy.streamline.cli.CommandParser;
 import org.daisy.streamline.cli.SwitchArgument;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 @SuppressWarnings("javadoc")
 public class DefaultCommandParserTest {
 
 	@Test
 	public void testSwitchProcessing_01() {
-		DefaultCommandParser parser = new DefaultCommandParser();
-		parser.addSwitch(new SwitchArgument('c', "copy", "true", "Turns on copying."));
+		CommandDetails details = Mockito.mock(CommandDetails.class);
+		Mockito.when(details.getSwitches()).thenReturn(new SwitchMap.Builder()
+				.addSwitch(new SwitchArgument('c', "copy", "true", "Turns on copying."))
+				.build());
+		CommandParser parser = new CommandParser.Builder(details)
+				.build();
 		CommandParserResult result = parser.parse(new String[]{"-c"});
 
 		Map<String, String> opts = result.getOptional();
@@ -27,9 +32,13 @@ public class DefaultCommandParserTest {
 
 	@Test
 	public void testSwitchProcessing_02() {
-		DefaultCommandParser parser = new DefaultCommandParser();
-		parser.addSwitch(new SwitchArgument('c', "copy", "true", "Turns on copying."));
-		parser.addSwitch(new SwitchArgument('d', "delete", "all", "Delete originals."));
+		CommandDetails details = Mockito.mock(CommandDetails.class);
+		Mockito.when(details.getSwitches()).thenReturn(new SwitchMap.Builder()
+				.addSwitch(new SwitchArgument('c', "copy", "true", "Turns on copying."))
+				.addSwitch(new SwitchArgument('d', "delete", "all", "Delete originals."))
+				.build());
+		CommandParser parser = new CommandParser.Builder(details)
+				.build();
 
 		CommandParserResult result = parser.parse(new String[]{"-c", "--copy=true", "-e", "-d"});
 
@@ -45,7 +54,8 @@ public class DefaultCommandParserTest {
 
 	@Test
 	public void testCommandParser_01() {
-		DefaultCommandParser parser = new DefaultCommandParser();
+		CommandDetails details = Mockito.mock(CommandDetails.class);
+		CommandParser parser = new CommandParser.Builder(details).build();
 		CommandParserResult result = parser.parse(new String[]{"R1", "R2", "--option=value"});
 		Map<String, String> opts = result.getOptional();
 		List<String> req = result.getRequired();
@@ -59,8 +69,11 @@ public class DefaultCommandParserTest {
 
 	@Test
 	public void testCommandParser_02() {
-		DefaultCommandParser parser = new DefaultCommandParser();
-		parser.addSwitch(new SwitchArgument('d', "option", "value", "Switch option value."));
+		CommandDetails details = Mockito.mock(CommandDetails.class);
+		Mockito.when(details.getSwitches()).thenReturn(new SwitchMap.Builder()
+				.addSwitch(new SwitchArgument('d', "option", "value", "Switch option value."))
+				.build());
+		CommandParser parser = new CommandParser.Builder(details).build();
 		CommandParserResult result = parser.parse(new String[]{"R1", "R2", "-d"});
 		Map<String, String> opts = result.getOptional();
 		List<String> req = result.getRequired();
@@ -74,9 +87,13 @@ public class DefaultCommandParserTest {
 
 	@Test
 	public void testCommandParser_03() {
-		DefaultCommandParser parser = new DefaultCommandParser();
-		parser.setOptionalArgumentPrefix("--");
-		parser.addSwitch(new SwitchArgument('d', "default", "option", "value", "Switch option value."));
+		CommandDetails details = Mockito.mock(CommandDetails.class);
+		Mockito.when(details.getSwitches()).thenReturn(new SwitchMap.Builder()
+				.addSwitch(new SwitchArgument('d', "default", "option", "value", "Switch option value."))
+				.build());
+		CommandParser parser = new CommandParser.Builder(details)
+				.optionalArgumentPrefix("--")
+				.build();
 		CommandParserResult result = parser.parse(new String[]{"--default"});
 		Map<String, String> opts = result.getOptional();
 		List<String> req = result.getRequired();
