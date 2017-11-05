@@ -30,8 +30,7 @@ public abstract class AbstractUI {
 			if (id!=null) {
 				map.put(key, id);
 			} else {
-				System.out.println("Unknown value for "+key+": '" + value + "'");
-				System.exit(-ExitCode.ILLEGAL_ARGUMENT_VALUE.ordinal());
+				ExitCode.ILLEGAL_ARGUMENT_VALUE.exitSystem("Unknown value for "+key+": '" + value + "'");
 			}
 		}
 	}
@@ -92,26 +91,6 @@ public abstract class AbstractUI {
 	 * passed to the UI on startup
 	 */
 	public abstract List<OptionalArgument> getOptionalArguments();
-
-	/**
-	 * Quits the application with the specified code.
-	 * @param e the code
-	 */
-	public static void exitWithCode(ExitCode e) {
-		exitWithCode(e, null);
-	}
-
-	/**
-	 * Quits the application with the specified code and message. 
-	 * @param e the code
-	 * @param message the message
-	 */
-	public static void exitWithCode(ExitCode e, String message) {
-		if (message!=null) {
-			System.out.println(message);
-		}
-		System.exit(-e.ordinal());
-	}
 
 	/**
 	 * Displays a help text for the UI based on the implementation of 
