@@ -31,6 +31,7 @@ jar {
 			'Implementation-Title': "$releaseName",
 			'Implementation-Version': version,
 			'Implementation-URL': "$repositoryURL",
+			'Include-Resource': 'LICENSE, NOTICE',
 			//'Class-Path': configurations.compile.collect { it.getName() }.join(' ')					//'${core.classpath.attribute}'
 			)
 		}
